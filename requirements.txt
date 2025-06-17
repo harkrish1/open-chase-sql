@@ -1,0 +1,5 @@
+requests
+openai
+nltk
+transformers
+streamlit

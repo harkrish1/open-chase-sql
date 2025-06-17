@@ -1,0 +1,6 @@
+corpora
+qdrant_data
+.DS_Store
+.idea/
+__pycache__/
+Chinook.db
