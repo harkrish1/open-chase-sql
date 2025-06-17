@@ -2,12 +2,13 @@ from qdrant_client import models, QdrantClient
 from openai import OpenAI
 from setup_chinook_db import ChinookDBWrapper
 import constants
+import dotenv
 
 class QdrantClientWrapper:
     def __init__(self):
         self.qdrant = QdrantClient(path = "./qdrant_data")
         self.openai_client = OpenAI(
-            api_key="api_key_placeholder"  # Replace with your actual OpenAI API key
+            api_key= dotenv.get_key('.env', 'OPENAI_API_KEY')
         )
         self.encoding_dimension = 256
         self.dim_collection_name = constants.DIM_COLLECTION_NAME

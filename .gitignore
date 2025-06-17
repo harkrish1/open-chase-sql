@@ -4,3 +4,4 @@ qdrant_data
 .idea/
 __pycache__/
 Chinook.db
+.env

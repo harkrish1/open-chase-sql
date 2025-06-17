@@ -3,3 +3,4 @@ openai
 nltk
 transformers
 streamlit
+dotenv

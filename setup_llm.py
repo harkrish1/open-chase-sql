@@ -1,10 +1,10 @@
 from openai import OpenAI
 import ast
-
+import dotenv
 class LLM:
     def __init__(self):
         self.openai_client = OpenAI(
-            api_key="api_key_placeholder"  # Replace with your actual OpenAI API key
+            api_key=dotenv.get_key('.env', 'OPENAI_API_KEY')
         )
     def write_sql_query(self, question: str, dimensions: list, kpis: list, table_metadata: dict):
         prompt = f"""You are a data analyst agent. Your client is a human who is asking a question about the data. \
