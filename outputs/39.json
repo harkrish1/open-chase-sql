@@ -1,0 +1,9 @@
+{
+    "question_id": 39,
+    "question": "What is the average number of test takers from Fresno schools that opened between 1/1/1980 and 12/31/1980?",
+    "db_id": "california_schools",
+    "SQL": "SELECT AVG(T1.NumTstTakr) FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE strftime('%Y', T2.OpenDate) = '1980' AND T2.County = 'Fresno'",
+    "expert_result": "   AVG(T1.NumTstTakr)\n0          137.888889",
+    "generated_result": "  AVG(a.NumTstTakr)\n0              None",
+    "generated_sql": "SELECT AVG(a.NumTstTakr)\nFROM satscores AS a\nLEFT JOIN frpm AS b\n  ON a.cds = b.CDSCode\nWHERE b.`County Name` = 'Fresno'\n  AND SUBSTR(b.`Academic Year`,1,4) = '1980'\n  AND a.NumTstTakr IS NOT NULL;"
+}

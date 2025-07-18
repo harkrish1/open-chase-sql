@@ -1,0 +1,9 @@
+{
+    "question_id": 76,
+    "question": "What is the city location of the high school level school with Lunch Provision 2 whose lowest grade is 9 and the highest grade is 12 in the county of Merced?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.City FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`NSLP Provision Status` = 'Lunch Provision 2' AND T2.County = 'Merced' AND T1.`Low Grade` = 9 AND T1.`High Grade` = 12 AND T2.EILCode = 'HS'",
+    "expert_result": "       City\n0  Le Grand",
+    "generated_result": "              City\n0         Le Grand\n1  South Dos Palos\n2        Dos Palos",
+    "generated_sql": "SELECT DISTINCT a.City\nFROM schools AS a\nJOIN frpm AS b\n  ON a.CDSCode = b.CDSCode\nWHERE a.EILCode = 'HS'\n  AND b.`NSLP Provision Status` = 'Provision 2'\n  AND b.`Low Grade` = '9'\n  AND b.`High Grade` = '12'\n  AND b.`County Name` = 'Merced'\n  AND a.City IS NOT NULL;"
+}

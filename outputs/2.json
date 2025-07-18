@@ -1,0 +1,9 @@
+{
+    "question_id": 2,
+    "question": "Please list the zip code of all the charter schools in Fresno County Office of Education.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Zip FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`District Name` = 'Fresno County Office of Education' AND T1.`Charter School (Y/N)` = 1",
+    "expert_result": "          Zip\n0  93726-5309\n1  93628-9602\n2  93706-2611\n3  93726-5208\n4  93706-2819",
+    "generated_result": "          Zip\n0  93726-5309\n1  93628-9602\n2  93706-2611\n3  93726-5208\n4  93706-2819",
+    "generated_sql": "SELECT DISTINCT s.`Zip`\nFROM frpm AS f\nLEFT JOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`Charter School (Y/N)` = 1\n  AND f.`County Name` = 'Fresno'\n  AND f.`District Type` = 'County Office of Education (COE)'\n  AND s.`Zip` IS NOT NULL;"
+}

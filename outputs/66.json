@@ -1,0 +1,9 @@
+{
+    "question_id": 66,
+    "question": "Between 1/1/2000 to 12/31/2005, how many directly funded schools opened in the county of Stanislaus?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(School) FROM schools WHERE strftime('%Y', OpenDate) BETWEEN '2000' AND '2005' AND County = 'Stanislaus' AND FundingType = 'Directly funded'",
+    "expert_result": "   COUNT(School)\n0              7",
+    "generated_result": "   directly_funded_schools_opened\n0                               7",
+    "generated_sql": "SELECT COUNT(*) AS directly_funded_schools_opened\nFROM schools\nWHERE `FundingType` = 'Directly funded'\n  AND `County` = 'Stanislaus'\n  AND `OpenDate` BETWEEN '2000-01-01' AND '2005-12-31'\n  AND `FundingType` IS NOT NULL\n  AND `County` IS NOT NULL\n  AND `OpenDate` IS NOT NULL;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 33,
+    "question": "If there are any, what are the websites address of the schools with a free meal count of 1,900-2,000 to students aged 5-17? Include the name of the school.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Website, T1.`School Name` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`Free Meal Count (Ages 5-17)` BETWEEN 1900 AND 2000 AND T2.Website IS NOT NULL",
+    "expert_result": "                               Website   School Name\n0  http://lhs.lynwood.edlioschool.com/  Lynwood High\n1                 www.auhsd.us/katella  Katella High",
+    "generated_result": "    School Name                              Website\n0  Lynwood High  http://lhs.lynwood.edlioschool.com/\n1  Katella High                 www.auhsd.us/katella",
+    "generated_sql": "SELECT f.`School Name`, s.`Website`\nFROM frpm AS f\nJOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`Free Meal Count (Ages 5-17)` BETWEEN 1900 AND 2000\n  AND f.`School Name` IS NOT NULL\n  AND s.`Website` IS NOT NULL;"
+}

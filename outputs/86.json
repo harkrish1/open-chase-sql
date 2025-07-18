@@ -1,0 +1,9 @@
+{
+    "question_id": 86,
+    "question": "What is the administrator's last name that oversees the school with Charter number 40? Indicate the district, the county where the school is situated, and the name of the school.",
+    "db_id": "california_schools",
+    "SQL": "SELECT AdmLName1, District, County, School FROM schools WHERE CharterNum = '0040'",
+    "expert_result": "  AdmLName1               District         County                 School\n0   Aguilar  San Francisco Unified  San Francisco  Creative Arts Charter",
+    "generated_result": "Empty DataFrame\nColumns: [AdmLName1, District, County, School]\nIndex: []",
+    "generated_sql": "SELECT AdmLName1, District, County, School\nFROM schools\nWHERE Charter = 40\nAND AdmLName1 IS NOT NULL\nAND District IS NOT NULL\nAND County IS NOT NULL\nAND School IS NOT NULL"
+}

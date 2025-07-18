@@ -1,0 +1,9 @@
+{
+    "question_id": 85,
+    "question": "What is the Percent (%) Eligible Free (K-12) in the school administered by an administrator whose first name is Alusine. List the district code of the school.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.`Free Meal Count (K-12)` * 100 / T1.`Enrollment (K-12)`, T1.`District Code` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.AdmFName1 = 'Alusine'",
+    "expert_result": "   T1.`Free Meal Count (K-12)` * 100 / T1.`Enrollment (K-12)`  District Code\n0                                          70.151134                   64857",
+    "generated_result": "   District Code  Percent (%) Eligible Free (K-12)\n0          64857                         70.151134",
+    "generated_sql": "SELECT f.`District Code`, \n       f.`Free Meal Count (K-12)` / f.`Enrollment (K-12)` * 100 AS `Percent (%) Eligible Free (K-12)`\nFROM schools AS s\nJOIN frpm AS f\n  ON s.CDSCode = f.CDSCode\nWHERE s.`AdmFName1` = 'Alusine'\n  AND f.`District Code` IS NOT NULL\n  AND f.`Free Meal Count (K-12)` IS NOT NULL\n  AND f.`Enrollment (K-12)` IS NOT NULL;"
+}

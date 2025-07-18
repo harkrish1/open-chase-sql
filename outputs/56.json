@@ -1,0 +1,9 @@
+{
+    "question_id": 56,
+    "question": "Of all the schools with a mailing state address in California, how many are active in San Joaquin city?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(CDSCode) FROM schools WHERE City = 'San Joaquin' AND MailState = 'CA' AND StatusType = 'Active'",
+    "expert_result": "   COUNT(CDSCode)\n0               2",
+    "generated_result": "   COUNT(*)\n0         6",
+    "generated_sql": "SELECT COUNT(*) \nFROM schools \nWHERE MailState = 'CA' \n  AND MailCity = 'San Joaquin' \n  AND StatusType = 'Active';"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 31,
+    "question": "What is the eligible free rate of the 10th and 11th schools with the highest enrolment for students in grades 1 through 12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT CAST(`Free Meal Count (K-12)` AS REAL) / `Enrollment (K-12)` FROM frpm ORDER BY `Enrollment (K-12)` DESC LIMIT 9, 2",
+    "expert_result": "   CAST(`Free Meal Count (K-12)` AS REAL) / `Enrollment (K-12)`\n0                                           0.134436           \n1                                           0.290589           ",
+    "generated_result": "                   School Name  eligible_free_rate\n0  El Camino Real Charter High            0.134436\n1       Eleanor Roosevelt High            0.290589",
+    "generated_sql": "SELECT `School Name`,\n       (`Free Meal Count (K-12)` / `Enrollment (K-12)`) AS eligible_free_rate\nFROM frpm\nWHERE `Free Meal Count (K-12)` IS NOT NULL\n  AND `Enrollment (K-12)` IS NOT NULL\nORDER BY `Enrollment (K-12)` DESC\nLIMIT 2 OFFSET 9;"
+}

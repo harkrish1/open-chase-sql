@@ -1,0 +1,9 @@
+{
+    "question_id": 55,
+    "question": "Of the schools with a mailing state address in California, what is the ratio of the schools located in the county of Colusa against the school located in the county of Humboldt?",
+    "db_id": "california_schools",
+    "SQL": "SELECT CAST(SUM(CASE WHEN County = 'Colusa' THEN 1 ELSE 0 END) AS REAL) / SUM(CASE WHEN County = 'Humboldt' THEN 1 ELSE 0 END) FROM schools WHERE MailState = 'CA'",
+    "expert_result": "   CAST(SUM(CASE WHEN County = 'Colusa' THEN 1 ELSE 0 END) AS REAL) / SUM(CASE WHEN County = 'Humboldt' THEN 1 ELSE 0 END)\n0                                           0.180905                                                                      ",
+    "generated_result": "      ratio\n0  0.180905",
+    "generated_sql": "SELECT\n  SUM(CASE WHEN `County` = 'Colusa' THEN 1 ELSE 0 END) * 1.0\n    / NULLIF(SUM(CASE WHEN `County` = 'Humboldt' THEN 1 ELSE 0 END), 0)\n    AS ratio\nFROM schools\nWHERE `MailState` = 'CA'\n  AND `MailState` IS NOT NULL;"
+}

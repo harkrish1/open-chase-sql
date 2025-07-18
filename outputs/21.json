@@ -1,0 +1,9 @@
+{
+    "question_id": 21,
+    "question": "In Los Angeles how many schools have more than 500 free meals but less than 700 free or reduced price meals for K-12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(CDSCode) FROM frpm WHERE `County Name` = 'Los Angeles' AND `Free Meal Count (K-12)` > 500 AND `FRPM Count (K-12)`< 700",
+    "expert_result": "   COUNT(CDSCode)\n0             249",
+    "generated_result": "   COUNT(`School Name`)\n0                   249",
+    "generated_sql": "SELECT COUNT(`School Name`)\nFROM frpm\nWHERE `County Name` = 'Los Angeles'\n  AND `Free Meal Count (K-12)` > 500\n  AND `FRPM Count (K-12)` < 700\n  AND `School Name` IS NOT NULL;"
+}

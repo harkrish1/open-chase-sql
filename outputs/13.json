@@ -1,0 +1,9 @@
+{
+    "question_id": 13,
+    "question": "Please list the phone numbers of the schools with the top 3 SAT excellence rate.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.Phone FROM schools AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds ORDER BY CAST(T2.NumGE1500 AS REAL) / T2.NumTstTakr DESC LIMIT 3",
+    "expert_result": "            Phone\n0  (714) 220-3055\n1  (562) 229-7745\n2  (408) 366-7700",
+    "generated_result": "            Phone\n0  (714) 220-3055\n1  (562) 229-7745\n2  (408) 366-7700",
+    "generated_sql": "SELECT b.Phone\nFROM satscores AS a\nLEFT JOIN schools AS b\nON a.cds = b.CDSCode\nWHERE a.NumTstTakr > 0\nAND b.Phone IS NOT NULL\nORDER BY (a.NumGE1500 * 1.0 / a.NumTstTakr) DESC\nLIMIT 3;"
+}

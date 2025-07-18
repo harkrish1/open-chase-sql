@@ -1,0 +1,9 @@
+{
+    "question_id": 50,
+    "question": "What is the postal street address for the school with the 7th highest Math average? Indicate the school's name.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.MailStreet, T2.School FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.AvgScrMath DESC LIMIT 6, 1",
+    "expert_result": "           MailStreet          School\n0  5172 Orange Avenue  Oxford Academy",
+    "generated_result": "                sname            MailStreet\n0  Amador Valley High  1155 Santa Rita Road",
+    "generated_sql": "SELECT a.sname, b.MailStreet\nFROM satscores AS a\nJOIN schools AS b\n  ON b.CDSCode = printf('0%s', a.cds)\nWHERE a.AvgScrMath IS NOT NULL\n  AND a.sname IS NOT NULL\n  AND b.MailStreet IS NOT NULL\nORDER BY a.AvgScrMath DESC\nLIMIT 1 OFFSET 6;"
+}

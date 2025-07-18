@@ -1,0 +1,9 @@
+{
+    "question_id": 8,
+    "question": "What is the number of SAT test takers of the schools with the highest FRPM count for K-12 students?",
+    "db_id": "california_schools",
+    "SQL": "SELECT NumTstTakr FROM satscores WHERE cds = ( SELECT CDSCode FROM frpm ORDER BY `FRPM Count (K-12)` DESC LIMIT 1 )",
+    "expert_result": "   NumTstTakr\n0         459",
+    "generated_result": "   NumTstTakr\n0         459",
+    "generated_sql": "SELECT s.NumTstTakr\nFROM frpm AS f\nJOIN satscores AS s\n  ON f.CDSCode = s.cds\nWHERE f.`FRPM Count (K-12)` = (\n    SELECT MAX(`FRPM Count (K-12)`) FROM frpm\n)\nAND s.NumTstTakr IS NOT NULL;"
+}

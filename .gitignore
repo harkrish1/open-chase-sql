@@ -5,3 +5,4 @@ qdrant_data
 __pycache__/
 Chinook.db
 .env
+/qdrant_storage/

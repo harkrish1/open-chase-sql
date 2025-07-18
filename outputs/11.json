@@ -1,0 +1,9 @@
+{
+    "question_id": 11,
+    "question": "Please list the codes of the schools with a total enrollment of over 500.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.CDSCode FROM schools AS T1 INNER JOIN frpm AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.`Enrollment (K-12)` + T2.`Enrollment (Ages 5-17)` > 500",
+    "expert_result": "             CDSCode\n0     01100170109835\n1     01100170112607\n2     01100170124172\n3     01100170125567\n4     01100176001788\n...              ...\n7801  58727440114652\n7802  58727516056816\n7803  58727516056832\n7804  58727516056840\n7805  58727695838305\n\n[7806 rows x 1 columns]",
+    "generated_result": "     School Code\n0        0109835\n1        0112607\n2        0124172\n3        0125567\n4        6001788\n...          ...\n7801     0114652\n7802     6056816\n7803     6056832\n7804     6056840\n7805     5838305\n\n[7806 rows x 1 columns]",
+    "generated_sql": "SELECT `School Code`\nFROM frpm\nWHERE (`Enrollment (K-12)` + `Enrollment (Ages 5-17)`) > 500\n  AND `School Code` IS NOT NULL;"
+}

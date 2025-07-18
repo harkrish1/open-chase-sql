@@ -1,0 +1,9 @@
+{
+    "question_id": 51,
+    "question": "In which mailing street address can you find the school that has the lowest average score in reading? Also give the school's name.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.MailStreet, T2.School FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T1.AvgScrRead IS NOT NULL ORDER BY T1.AvgScrRead ASC LIMIT 1",
+    "expert_result": "         MailStreet                   School\n0  1050 York Street  S.F. International High",
+    "generated_result": "                     sname        MailStreet\n0  S.F. International High  1050 York Street",
+    "generated_sql": "SELECT a.sname, b.`MailStreet`\nFROM satscores AS a\nJOIN schools AS b\n  ON a.cds = b.CDSCode\nWHERE a.AvgScrRead IS NOT NULL\n  AND a.sname IS NOT NULL\n  AND b.`MailStreet` IS NOT NULL\nORDER BY a.AvgScrRead ASC\nLIMIT 1;"
+}

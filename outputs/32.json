@@ -1,0 +1,9 @@
+{
+    "question_id": 32,
+    "question": "What is the eligible free or reduced price meal rate for the top 5 schools in grades 1-12 with the highest free or reduced price meal count of the schools with the ownership code 66?",
+    "db_id": "california_schools",
+    "SQL": "SELECT CAST(T1.`FRPM Count (K-12)` AS REAL) / T1.`Enrollment (K-12)` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.SOC = 66 ORDER BY T1.`FRPM Count (K-12)` DESC LIMIT 5",
+    "expert_result": "   CAST(T1.`FRPM Count (K-12)` AS REAL) / T1.`Enrollment (K-12)`\n0                                           0.917948            \n1                                           0.999329            \n2                                           0.896499            \n3                                           0.895820            \n4                                           0.914180            ",
+    "generated_result": "                                        School  Eligible FRPM Rate (K-12)\n0                                Monrovia High                   0.502521\n1                        Juan Bautista de Anza                   0.697674\n2  Klamath River Early College of the Redwoods                   0.760000",
+    "generated_sql": "SELECT b.`School`, \n       (a.`FRPM Count (K-12)` / a.`Enrollment (K-12)`) AS `Eligible FRPM Rate (K-12)`\nFROM frpm AS a\nJOIN schools AS b\n  ON a.CDSCode = b.CDSCode\nWHERE b.SOC = '66'\n  AND b.GSserved = 'K-12'\n  AND b.`School` IS NOT NULL\n  AND a.`FRPM Count (K-12)` IS NOT NULL\n  AND a.`Enrollment (K-12)` IS NOT NULL\nORDER BY a.`FRPM Count (K-12)` DESC\nLIMIT 5;"
+}

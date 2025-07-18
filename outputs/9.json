@@ -1,0 +1,9 @@
+{
+    "question_id": 9,
+    "question": "Among the schools with the average score in Math over 560 in the SAT test, how many schools are directly charter-funded?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(T2.`School Code`) FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode WHERE T1.AvgScrMath > 560 AND T2.`Charter Funding Type` = 'Directly funded'",
+    "expert_result": "   COUNT(T2.`School Code`)\n0                        2",
+    "generated_result": "   COUNT(DISTINCT b.CDSCode)\n0                          3",
+    "generated_sql": "SELECT COUNT(DISTINCT b.CDSCode)\nFROM satscores AS a\nJOIN schools AS b\n  ON substr(b.CDSCode, 2) = a.cds\nWHERE a.AvgScrMath IS NOT NULL\n  AND a.AvgScrMath > 560\n  AND b.FundingType IS NOT NULL\n  AND b.FundingType = 'Directly funded';"
+}

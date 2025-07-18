@@ -1,0 +1,9 @@
+{
+    "question_id": 81,
+    "question": "In which city can you find the school in the state of California with the lowest latitude coordinates and what is its lowest grade? Indicate the school name.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.City, T1.`Low Grade`, T1.`School Name` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.State = 'CA' ORDER BY T2.Latitude ASC LIMIT 1",
+    "expert_result": "       City Low Grade            School Name\n0  Oroville         7  Central Middle - RISE",
+    "generated_result": "       City            School Name Low Grade\n0  Oroville  Central Middle - RISE         7",
+    "generated_sql": "SELECT s.City, f.`School Name`, f.`Low Grade`\nFROM schools AS s\nJOIN frpm AS f ON s.CDSCode = f.CDSCode\nWHERE s.State = 'CA'\n  AND s.City IS NOT NULL\n  AND f.`School Name` IS NOT NULL\n  AND f.`Low Grade` IS NOT NULL\nORDER BY s.Latitude ASC\nLIMIT 1;"
+}

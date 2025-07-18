@@ -1,0 +1,9 @@
+{
+    "question_id": 3,
+    "question": "What is the unabbreviated mailing street address of the school with the highest FRPM count for K-12 students?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.MailStreet FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode ORDER BY T1.`FRPM Count (K-12)` DESC LIMIT 1",
+    "expert_result": "                  MailStreet\n0  14429 South Downey Avenue",
+    "generated_result": "                                Error\n0  No valid dimensions or KPIs found.",
+    "generated_sql": null
+}

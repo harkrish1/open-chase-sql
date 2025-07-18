@@ -1,0 +1,9 @@
+{
+    "question_id": 59,
+    "question": "What is the website for the schools under the administrations of Mike Larson and Dante Alvarez?",
+    "db_id": "california_schools",
+    "SQL": "SELECT Website FROM schools WHERE (AdmFName1 = 'Mike' AND AdmLName1 = 'Larson') OR (AdmFName1 = 'Dante' AND AdmLName1 = 'Alvarez')",
+    "expert_result": "                                   Website\n0   http://ripon.ca.rse.schoolinsites.com/\n1  http://ripona.ca.rse.schoolinsites.com/",
+    "generated_result": "                                   Website\n0   http://ripon.ca.rse.schoolinsites.com/\n1  http://ripona.ca.rse.schoolinsites.com/",
+    "generated_sql": "SELECT DISTINCT `Website`\nFROM schools\nWHERE `Website` IS NOT NULL\n  AND (\n    (AdmFName1 = 'Mike' AND AdmLName1 = 'Larson')\n    OR (AdmFName2 = 'Mike' AND AdmLName2 = 'Larson')\n    OR (AdmFName3 = 'Mike' AND AdmLName3 = 'Larson')\n    OR (AdmFName1 = 'Dante' AND AdmLName1 = 'Alvarez')\n    OR (AdmFName2 = 'Dante' AND AdmLName2 = 'Alvarez')\n    OR (AdmFName3 = 'Dante' AND AdmLName3 = 'Alvarez')\n  );"
+}

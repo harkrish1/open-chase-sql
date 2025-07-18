@@ -1,0 +1,9 @@
+{
+    "question_id": 74,
+    "question": "What is the lowest grade for the District Special Education Consortia School with National Center for Educational Statistics school district identification number of 0613360?",
+    "db_id": "california_schools",
+    "SQL": "SELECT MIN(T1.`Low Grade`) FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.NCESDist = '0613360' AND T2.EdOpsCode = 'SPECON'",
+    "expert_result": "  MIN(T1.`Low Grade`)\n0                   K",
+    "generated_result": "  Lowest Grade\n0            K",
+    "generated_sql": "SELECT MIN(f.`Low Grade`) AS `Lowest Grade`\nFROM schools AS s\nLEFT JOIN frpm AS f\nON s.CDSCode = f.CDSCode\nWHERE s.EdOpsCode = 'SPECON'\nAND s.NCESDist = '0613360'\nAND f.`Low Grade` IS NOT NULL;"
+}

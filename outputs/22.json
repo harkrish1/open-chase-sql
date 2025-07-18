@@ -1,0 +1,9 @@
+{
+    "question_id": 22,
+    "question": "Which school in Contra Costa has the highest number of test takers?",
+    "db_id": "california_schools",
+    "SQL": "SELECT sname FROM satscores WHERE cname = 'Contra Costa' AND sname IS NOT NULL ORDER BY NumTstTakr DESC LIMIT 1",
+    "expert_result": "                   sname\n0  Dougherty Valley High",
+    "generated_result": "             School Name  NumTstTakr\n0  Dougherty Valley High         528",
+    "generated_sql": "SELECT a.`School Name`, b.NumTstTakr\nFROM frpm AS a\nJOIN satscores AS b\n  ON a.`School Name` = b.sname\n  AND a.`County Name` = b.cname\nWHERE a.`County Name` = 'Contra Costa'\n  AND a.`School Name` IS NOT NULL\n  AND b.NumTstTakr IS NOT NULL\nORDER BY b.NumTstTakr DESC\nLIMIT 1;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 34,
+    "question": "What is the free rate for students between the ages of 5 and 17 at the school run by Kacey Gibson?",
+    "db_id": "california_schools",
+    "SQL": "SELECT CAST(T2.`Free Meal Count (Ages 5-17)` AS REAL) / T2.`Enrollment (Ages 5-17)` FROM schools AS T1 INNER JOIN frpm AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.AdmFName1 = 'Kacey' AND T1.AdmLName1 = 'Gibson'",
+    "expert_result": "   CAST(T2.`Free Meal Count (Ages 5-17)` AS REAL) / T2.`Enrollment (Ages 5-17)`\n0                                           0.201742                           ",
+    "generated_result": "   `Free Meal Count (Ages 5-17)` / `Enrollment (Ages 5-17)`\n0                                           0.337891       \n1                                           0.829443       \n2                                           0.504092       ",
+    "generated_sql": "SELECT `Free Meal Count (Ages 5-17)` / `Enrollment (Ages 5-17)`\nFROM frpm\nWHERE (`School Name` LIKE '%Gibson%' OR `District Name` LIKE '%Gibson%')\nAND `Free Meal Count (Ages 5-17)` IS NOT NULL\nAND `Enrollment (Ages 5-17)` IS NOT NULL"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 67,
+    "question": "What is the total amount of Community College District closure in 1989 in the city of San Francisco?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(School) FROM schools WHERE strftime('%Y', ClosedDate) = '1989' AND City = 'San Francisco' AND DOCType = 'Community College District'",
+    "expert_result": "   COUNT(School)\n0              2",
+    "generated_result": "   total_closure\n0              0",
+    "generated_sql": "SELECT COUNT(*) AS total_closure\nFROM schools AS s\nLEFT JOIN frpm AS f\n  ON s.CDSCode = f.CDSCode\nWHERE s.`ClosedDate` IS NOT NULL\n  AND substr(s.`ClosedDate`,1,4) = '1989'\n  AND f.`School Type` IS NOT NULL\n  AND f.`School Type` = 'County Community'\n  AND f.`County Name` IS NOT NULL\n  AND f.`County Name` = 'San Francisco';"
+}

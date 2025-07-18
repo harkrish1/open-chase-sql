@@ -1,0 +1,9 @@
+{
+    "question_id": 82,
+    "question": "What is the grade span offered in the school with the highest longitude?",
+    "db_id": "california_schools",
+    "SQL": "SELECT GSoffered FROM schools ORDER BY ABS(longitude) DESC LIMIT 1",
+    "expert_result": "  GSoffered\n0       K-8",
+    "generated_result": "  GSoffered\n0       K-8",
+    "generated_sql": "SELECT `GSoffered`\nFROM schools\nWHERE `GSoffered` IS NOT NULL\n  AND ABS(`Longitude`) = (\n    SELECT MAX(ABS(`Longitude`))\n    FROM schools\n  );"
+}

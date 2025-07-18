@@ -1,0 +1,9 @@
+{
+    "question_id": 88,
+    "question": "What is the administrator's email address for the school with the highest number of test takers who received SAT scores of at least 1500?Provide the name of the school.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.AdmEmail1, T2.School FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.NumGE1500 DESC LIMIT 1",
+    "expert_result": "                 AdmEmail1 School\n0  michelle.king@lausd.net   None",
+    "generated_result": "         sname             AdmEmail1\n0  Lowell High  ishibashia@sfusd.edu",
+    "generated_sql": "SELECT a.sname, b.AdmEmail1\nFROM satscores AS a\nLEFT JOIN schools AS b\n  ON a.cds = b.CDSCode\nWHERE a.sname IS NOT NULL\n  AND b.AdmEmail1 IS NOT NULL\nORDER BY a.NumGE1500 DESC\nLIMIT 1;"
+}

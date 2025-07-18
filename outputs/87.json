@@ -1,0 +1,9 @@
+{
+    "question_id": 87,
+    "question": "What are the valid e-mail addresses of the administrator of the school located in the San Bernardino county, City of San Bernardino City Unified that opened between 1/1/2009 to 12/31/2010 whose school types are public Intermediate/Middle Schools and Unified Schools?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.AdmEmail1, T2.AdmEmail2 FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'San Bernardino' AND T2.City = 'San Bernardino' AND T2.DOC = 54 AND strftime('%Y', T2.OpenDate) BETWEEN '2009' AND '2010' AND T2.SOC = 62",
+    "expert_result": "                  AdmEmail1                    AdmEmail2\n0  a.lucero@realjourney.org  j.hernandez@realjourney.org",
+    "generated_result": "                                Error\n0  No valid dimensions or KPIs found.",
+    "generated_sql": null
+}

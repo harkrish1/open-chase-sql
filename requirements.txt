@@ -1,6 +1,10 @@
-requests
-openai
+requests~=2.32.3
+openai~=1.76.2
 nltk
-transformers
-streamlit
-dotenv
+transformers~=4.51.3
+streamlit~=1.45.1
+dotenv~=0.9.9
+pandas~=2.2.3
+spacy~=3.8.7
+python-dotenv~=1.1.0
+qdrant-client~=1.14.2

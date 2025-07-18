@@ -1,0 +1,9 @@
+{
+    "question_id": 52,
+    "question": "What is the total number of schools whose total SAT scores are greater or equal to 1500 whose mailing city is Lakeport?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(T1.cds) FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T2.MailCity = 'Lakeport' AND (T1.AvgScrRead + T1.AvgScrMath + T1.AvgScrWrite) >= 1500",
+    "expert_result": "   COUNT(T1.cds)\n0              2",
+    "generated_result": "   COUNT(*)\n0         2",
+    "generated_sql": "SELECT COUNT(*) \nFROM schools AS a\nJOIN satscores AS b\n  ON a.CDSCode = b.cds\nWHERE a.MailCity = 'Lakeport'\n  AND (b.AvgScrRead + b.AvgScrMath + b.AvgScrWrite) >= 1500\n  AND a.MailCity IS NOT NULL;"
+}

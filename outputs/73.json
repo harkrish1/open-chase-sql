@@ -1,0 +1,9 @@
+{
+    "question_id": 73,
+    "question": "What is the free or reduced price meal count for ages 5 to 17 in the Youth Authority School with a mailing street address of PO Box 1040?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.`FRPM Count (Ages 5-17)` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.MailStreet = 'PO Box 1040' AND T2.SOCType = 'Youth Authority Facilities'",
+    "expert_result": "   FRPM Count (Ages 5-17)\n0                     5.0",
+    "generated_result": "   FRPM Count (Ages 5-17)\n0                     5.0",
+    "generated_sql": "SELECT f.`FRPM Count (Ages 5-17)`\nFROM frpm AS f\nJOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`Educational Option Type` = 'Youth Authority School'\n  AND s.MailStreet = 'PO Box 1040'\n  AND f.`FRPM Count (Ages 5-17)` IS NOT NULL;"
+}

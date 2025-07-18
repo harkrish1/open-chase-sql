@@ -1,0 +1,9 @@
+{
+    "question_id": 44,
+    "question": "What is the average writing score of the school who has the highest number of test takers whose total SAT sscores are greater or equal to 1500? Indicate the city to where the school is situated.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.AvgScrWrite, T2.City FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.NumGE1500 DESC LIMIT 1",
+    "expert_result": "   AvgScrWrite         City\n0          435  Los Angeles",
+    "generated_result": "   AvgScrWrite         City\n0          435  Los Angeles",
+    "generated_sql": "SELECT s.AvgScrWrite, sc.City\nFROM satscores AS s\nJOIN schools AS sc\n  ON s.cds = sc.CDSCode\nWHERE s.NumGE1500 = (\n  SELECT MAX(NumGE1500)\n  FROM satscores\n)\nAND s.AvgScrWrite IS NOT NULL\nAND sc.City IS NOT NULL;"
+}

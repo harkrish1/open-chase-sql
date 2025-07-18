@@ -1,0 +1,9 @@
+{
+    "question_id": 35,
+    "question": "What is the administrator's email address of the chartered school with the fewest students enrolled in grades 1 through 12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.AdmEmail1 FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`Charter School (Y/N)` = 1 ORDER BY T1.`Enrollment (K-12)` ASC LIMIT 1",
+    "expert_result": "            AdmEmail1\n0  mjennings@kesd.org",
+    "generated_result": "            AdmEmail1\n0  mjennings@kesd.org",
+    "generated_sql": "SELECT s.AdmEmail1\nFROM frpm AS f\nJOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`Charter School (Y/N)` = 1\n  AND f.`Enrollment (K-12)` IS NOT NULL\n  AND s.AdmEmail1 IS NOT NULL\n  AND f.`Enrollment (K-12)` = (\n    SELECT MIN(`Enrollment (K-12)`)\n    FROM frpm\n    WHERE `Charter School (Y/N)` = 1\n      AND `Enrollment (K-12)` IS NOT NULL\n  );"
+}

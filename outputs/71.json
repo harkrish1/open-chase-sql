@@ -1,0 +1,9 @@
+{
+    "question_id": 71,
+    "question": "What is the district code for the School that does not offer a magnet program in the city of Fresno?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.`District Code` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.City = 'Fresno' AND T2.Magnet = 0",
+    "expert_result": "     District Code\n0            10108\n1            10108\n2            10108\n3            10108\n4            10108\n..             ...\n146          76778\n147          76778\n148          76778\n149          76778\n150          76778\n\n[151 rows x 1 columns]",
+    "generated_result": "     District Code\n0            10108\n1            10108\n2            10108\n3            10108\n4            10108\n..             ...\n146          76778\n147          76778\n148          76778\n149          76778\n150          76778\n\n[151 rows x 1 columns]",
+    "generated_sql": "SELECT f.`District Code`\nFROM schools AS s\nLEFT JOIN frpm AS f\n  ON s.CDSCode = f.CDSCode\nWHERE s.`City` = 'Fresno'\n  AND s.`Magnet` = 0\n  AND f.`District Code` IS NOT NULL;"
+}

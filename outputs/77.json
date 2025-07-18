@@ -1,0 +1,9 @@
+{
+    "question_id": 77,
+    "question": "Which schools served a grade span of Kindergarten to 9th grade in the county of Los Angeles and what is its Percent (%) Eligible FRPM (Ages 5-17)?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.School, T1.`FRPM Count (Ages 5-17)` * 100 / T1.`Enrollment (Ages 5-17)` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Los Angeles' AND T2.GSserved = 'K-9'",
+    "expert_result": "                 School  T1.`FRPM Count (Ages 5-17)` * 100 / T1.`Enrollment (Ages 5-17)`\n0  White Oak Elementary                                           3.755869              \n1       The Accelerated                                          97.638889              ",
+    "generated_result": "                 School  Percent (%) Eligible FRPM (Ages 5-17)\n0  White Oak Elementary                               0.037559\n1       The Accelerated                               0.976389",
+    "generated_sql": "SELECT s.School,\n       f.`Percent (%) Eligible FRPM (Ages 5-17)`\nFROM schools AS s\nLEFT JOIN frpm AS f\n  ON s.CDSCode = f.CDSCode\nWHERE s.GSserved = 'K-9'\n  AND s.County = 'Los Angeles'\n  AND s.School IS NOT NULL\n  AND f.`Percent (%) Eligible FRPM (Ages 5-17)` IS NOT NULL;"
+}

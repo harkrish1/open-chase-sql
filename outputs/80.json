@@ -1,0 +1,9 @@
+{
+    "question_id": 80,
+    "question": "What is the school type of the school with the highest latitude? Indicate the name of the school as well as the latitude coordinates.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.`School Type`, T1.`School Name`, T2.Latitude FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode ORDER BY T2.Latitude DESC LIMIT 1",
+    "expert_result": "             School Type          School Name   Latitude\n0  High Schools (Public)  Leggett Valley High  44.219305",
+    "generated_result": "                      School   Latitude                  School Type\n0        Leggett Valley High  44.219305        High Schools (Public)\n1  Leggett Valley Elementary  44.219305  Elementary Schools (Public)",
+    "generated_sql": "SELECT a.School, a.Latitude, b.`School Type`\nFROM schools AS a\nJOIN frpm AS b\n  ON a.CDSCode = b.CDSCode\nWHERE a.Latitude = (\n    SELECT MAX(Latitude) \n    FROM schools\n)\nAND a.School IS NOT NULL\nAND a.Latitude IS NOT NULL\nAND b.`School Type` IS NOT NULL;"
+}

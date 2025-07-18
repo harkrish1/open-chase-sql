@@ -1,0 +1,9 @@
+{
+    "question_id": 75,
+    "question": "What is the educational level name for the schools with Breakfast Provision 2 in county code 37? Indicate the name of the school.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.EILName, T2.School FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`NSLP Provision Status` = 'Breakfast Provision 2' AND T1.`County Code` = 37",
+    "expert_result": "       EILName                                             School\n0   Elementary  Lemon Grove Academy for the Sciences and Human...\n1   Elementary                        Monterey Heights Elementary\n2   Elementary                              Mt. Vernon Elementary\n3   Elementary                               San Altos Elementary\n4   Elementary                              San Miguel Elementary\n5   Elementary                              Vista La Mesa Academy\n6  High School                                  Torrey Pines High\n7  High School                               La Costa Canyon High",
+    "generated_result": "                                         School Name      EILName\n0  Lemon Grove Academy for the Sciences and Human...   Elementary\n1                        Monterey Heights Elementary   Elementary\n2                              Mt. Vernon Elementary   Elementary\n3                               San Altos Elementary   Elementary\n4                              San Miguel Elementary   Elementary\n5                              Vista La Mesa Academy   Elementary\n6                                  Torrey Pines High  High School\n7                               La Costa Canyon High  High School",
+    "generated_sql": "SELECT a.`School Name`, b.EILName\nFROM frpm AS a\nLEFT JOIN schools AS b\n  ON a.CDSCode = b.CDSCode\nWHERE a.`NSLP Provision Status` = 'Breakfast Provision 2'\n  AND a.`County Code` = '37'\n  AND a.`School Name` IS NOT NULL\n  AND b.EILName IS NOT NULL;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 15,
+    "question": "Which active district has the highest average score in Reading?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.District FROM schools AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds WHERE T1.StatusType = 'Active' ORDER BY T2.AvgScrRead DESC LIMIT 1",
+    "expert_result": "            District\n0  Palo Alto Unified",
+    "generated_result": "                                   dname  AvgScrRead\n0  Santa Cruz County Office of Education         638",
+    "generated_sql": "SELECT dname, AvgScrRead\nFROM satscores\nWHERE rtype = 'D'\n  AND dname IS NOT NULL\n  AND AvgScrRead IS NOT NULL\nORDER BY AvgScrRead DESC\nLIMIT 1;"
+}

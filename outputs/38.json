@@ -1,0 +1,9 @@
+{
+    "question_id": 38,
+    "question": "What are the webpages for the Los Angeles County school that has between 2,000 and 3,000 test takers?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Website FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T1.NumTstTakr BETWEEN 2000 AND 3000 AND T2.County = 'Los Angeles'",
+    "expert_result": "                Website\n0    www.avdistrict.org\n1     www.lbschools.net\n2  www.hartdistrict.org",
+    "generated_result": "Empty DataFrame\nColumns: [Website]\nIndex: []",
+    "generated_sql": "SELECT Website\nFROM schools as a\nINNER JOIN frpm as b ON a.CDSCode = b.CDSCode\nINNER JOIN satscores as c ON SUBSTR(a.CDSCode, 2) = c.cds\nWHERE b.`County Name` = 'Los Angeles'\nAND c.NumTstTakr BETWEEN 2000 AND 3000\nAND Website IS NOT NULL"
+}

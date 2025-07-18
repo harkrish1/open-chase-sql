@@ -1,0 +1,9 @@
+{
+    "question_id": 36,
+    "question": "Under whose administration is the school with the highest number of students scoring 1500 or more on the SAT? Indicate their full names.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.AdmFName1, T2.AdmLName1, T2.AdmFName2, T2.AdmLName2, T2.AdmFName3, T2.AdmLName3 FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.NumGE1500 DESC LIMIT 1",
+    "expert_result": "  AdmFName1 AdmLName1 AdmFName2 AdmLName2 AdmFName3 AdmLName3\n0  Michelle      King      None      None      None      None",
+    "generated_result": "       full_name\n0  Michelle King",
+    "generated_sql": "WITH top_school AS (\n  SELECT `cds`\n  FROM satscores\n  WHERE NumGE1500 = (SELECT MAX(NumGE1500) FROM satscores)\n)\nSELECT `AdmFName1` || ' ' || `AdmLName1` AS full_name\nFROM schools\nJOIN top_school ON schools.`CDSCode` = top_school.`cds`\nWHERE `AdmFName1` IS NOT NULL\n  AND `AdmLName1` IS NOT NULL\nUNION ALL\nSELECT `AdmFName2` || ' ' || `AdmLName2`\nFROM schools\nJOIN top_school ON schools.`CDSCode` = top_school.`cds`\nWHERE `AdmFName2` IS NOT NULL\n  AND `AdmLName2` IS NOT NULL\nUNION ALL\nSELECT `AdmFName3` || ' ' || `AdmLName3`\nFROM schools\nJOIN top_school ON schools.`CDSCode` = top_school.`cds`\nWHERE `AdmFName3` IS NOT NULL\n  AND `AdmLName3` IS NOT NULL;"
+}

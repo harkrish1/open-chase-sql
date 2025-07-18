@@ -1,0 +1,9 @@
+{
+    "question_id": 42,
+    "question": "What is the type of education offered in the school who scored the highest average in Math?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.EdOpsName FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.AvgScrMath DESC LIMIT 1",
+    "expert_result": "     EdOpsName\n0  Traditional",
+    "generated_result": "  EdOpsCode\n0      TRAD",
+    "generated_sql": "SELECT EdOpsCode\nFROM satscores a\nLEFT JOIN schools b ON a.cds = SUBSTR(b.CDSCode, 2)\nWHERE AvgScrMath = (SELECT MAX(AvgScrMath) FROM satscores WHERE AvgScrMath IS NOT NULL)\nAND EdOpsCode IS NOT NULL"
+}

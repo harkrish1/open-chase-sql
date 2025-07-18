@@ -1,0 +1,9 @@
+{
+    "question_id": 79,
+    "question": "Between San Diego and Santa Barbara, which county offers the most number of schools that does not offer physical building? Indicate the amount.",
+    "db_id": "california_schools",
+    "SQL": "SELECT County, COUNT(Virtual) FROM schools WHERE (County = 'San Diego' OR County = 'Santa Barbara') AND Virtual = 'F' GROUP BY County ORDER BY COUNT(Virtual) DESC LIMIT 1",
+    "expert_result": "      County  COUNT(Virtual)\n0  San Diego               8",
+    "generated_result": "      County  virtual_count\n0  San Diego              8",
+    "generated_sql": "SELECT County, COUNT(School) AS virtual_count\nFROM schools\nWHERE Virtual = 'F'\n  AND County IN ('San Diego','Santa Barbara')\n  AND County IS NOT NULL\n  AND School IS NOT NULL\nGROUP BY County\nORDER BY virtual_count DESC\nLIMIT 1;"
+}

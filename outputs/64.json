@@ -1,0 +1,9 @@
+{
+    "question_id": 64,
+    "question": "What is the total number of schools with a mailing city in Hickman belonging to the charter number 00D4?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(*) FROM schools WHERE CharterNum = '00D4' AND MailCity = 'Hickman'",
+    "expert_result": "   COUNT(*)\n0         3",
+    "generated_result": "   total_schools\n0              3",
+    "generated_sql": "SELECT COUNT(*) AS total_schools\nFROM schools\nWHERE MailCity = 'Hickman'\n  AND CharterNum = '00D4';"
+}

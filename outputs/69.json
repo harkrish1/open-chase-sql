@@ -1,0 +1,9 @@
+{
+    "question_id": 69,
+    "question": "Please provide the National Center for Educational Statistics school district identification number for all schools with a School Ownership Code that are part of the State Special Schools.",
+    "db_id": "california_schools",
+    "SQL": "SELECT NCESDist FROM schools WHERE SOC = 31",
+    "expert_result": "  NCESDist\n0  0600002\n1  0600003\n2  0600007",
+    "generated_result": "  NCESDist\n0  0600002\n1  0600003\n2  0600007",
+    "generated_sql": "SELECT `NCESDist`\nFROM schools\nWHERE `SOC` = '31'\n  AND `NCESDist` IS NOT NULL;"
+}

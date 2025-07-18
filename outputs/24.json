@@ -1,0 +1,9 @@
+{
+    "question_id": 24,
+    "question": "Give the names of the schools with the percent eligible for free meals in K-12 is more than 0.1 and test takers whose test score is greater than or equal to 1500?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.`School Name` FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode WHERE CAST(T2.`Free Meal Count (K-12)` AS REAL) / T2.`Enrollment (K-12)` > 0.1 AND T1.NumGE1500 > 0",
+    "expert_result": "                                  School Name\n0                           Clovis North High\n1                            Clovis West High\n2                               Buchanan High\n3                            Clovis East High\n4                                 Clovis High\n...                                       ...\n1063                     Woodland Senior High\n1064                           Lindhurst High\n1065  Marysville Charter Academy for the Arts\n1066                          Marysville High\n1067                     Wheatland Union High\n\n[1068 rows x 1 columns]",
+    "generated_result": "                                  School Name\n0                           Clovis North High\n1                            Clovis West High\n2                               Buchanan High\n3                            Clovis East High\n4                                 Clovis High\n...                                       ...\n1063                     Woodland Senior High\n1064                           Lindhurst High\n1065  Marysville Charter Academy for the Arts\n1066                          Marysville High\n1067                     Wheatland Union High\n\n[1068 rows x 1 columns]",
+    "generated_sql": "SELECT f.`School Name`\nFROM frpm AS f\nJOIN satscores AS s\n  ON f.CDSCode = s.cds\nWHERE (f.`Free Meal Count (K-12)` / f.`Enrollment (K-12)`) > 0.1\n  AND s.NumGE1500 > 0\n  AND f.`School Name` IS NOT NULL;"
+}

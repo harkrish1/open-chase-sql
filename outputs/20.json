@@ -1,0 +1,9 @@
+{
+    "question_id": 20,
+    "question": "How many schools in Amador which the Low Grade is 9 and the High Grade is 12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(T1.`School Name`) FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.County = 'Amador' AND T1.`Low Grade` = 9 AND T1.`High Grade` = 12",
+    "expert_result": "   COUNT(T1.`School Name`)\n0                        3",
+    "generated_result": "   COUNT(DISTINCT `School Name`)\n0                              3",
+    "generated_sql": "SELECT COUNT(DISTINCT `School Name`)\nFROM frpm\nWHERE `County Name` = 'Amador'\n  AND `Low Grade` = '9'\n  AND `High Grade` = '12'\n  AND `School Name` IS NOT NULL;"
+}

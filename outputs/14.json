@@ -1,0 +1,9 @@
+{
+    "question_id": 14,
+    "question": "List the top five schools, by descending order, from the highest to the lowest, the most number of Enrollment (Ages 5-17). Please give their NCES school identification number.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.NCESSchool FROM schools AS T1 INNER JOIN frpm AS T2 ON T1.CDSCode = T2.CDSCode ORDER BY T2.`Enrollment (Ages 5-17)` DESC LIMIT 5",
+    "expert_result": "  NCESSchool\n0      11707\n1      04653\n2      08283\n3      02751\n4      03050",
+    "generated_result": "  NCESSchool  Enrollment (Ages 5-17)\n0      11707                  5271.0\n1      04653                  4734.0\n2      08283                  4718.0\n3      02751                  4369.0\n4      03050                  4334.0",
+    "generated_sql": "SELECT b.NCESSchool, a.`Enrollment (Ages 5-17)`\nFROM frpm AS a\nLEFT JOIN schools AS b\n  ON a.CDSCode = b.CDSCode\nWHERE b.NCESSchool IS NOT NULL\n  AND a.`Enrollment (Ages 5-17)` IS NOT NULL\nORDER BY a.`Enrollment (Ages 5-17)` DESC\nLIMIT 5;"
+}

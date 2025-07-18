@@ -1,0 +1,9 @@
+{
+    "question_id": 19,
+    "question": "What is the phone number of the school that has the highest average score in Math?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.Phone FROM schools AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds ORDER BY T2.AvgScrMath DESC LIMIT 1",
+    "expert_result": "            Phone\n0  (408) 366-7700",
+    "generated_result": "            Phone\n0  (408) 366-7700",
+    "generated_sql": "SELECT b.Phone\nFROM satscores AS a\nJOIN schools AS b\n  ON a.cds = b.CDSCode\nWHERE a.AvgScrMath IS NOT NULL\n  AND b.Phone IS NOT NULL\nORDER BY a.AvgScrMath DESC\nLIMIT 1;"
+}

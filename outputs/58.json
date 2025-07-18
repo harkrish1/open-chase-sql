@@ -1,0 +1,9 @@
+{
+    "question_id": 58,
+    "question": "What is the phone number and extension number for the school with the zip code 95203-3704? Indicate the school's name.",
+    "db_id": "california_schools",
+    "SQL": "SELECT Phone, Ext, School FROM schools WHERE Zip = '95203-3704'",
+    "expert_result": "            Phone   Ext                       School\n0  (209) 933-7470  2222  Spanos (Alex G.) Elementary",
+    "generated_result": "                        School           Phone   Ext\n0  Spanos (Alex G.) Elementary  (209) 933-7470  2222",
+    "generated_sql": "SELECT School, Phone, Ext\nFROM schools\nWHERE Zip = '95203-3704'\nAND School IS NOT NULL\nAND Phone IS NOT NULL\nAND Ext IS NOT NULL;"
+}

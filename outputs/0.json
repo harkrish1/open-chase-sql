@@ -1,0 +1,9 @@
+{
+    "question_id": 0,
+    "question": "What is the highest eligible free rate for K-12 students in the schools in Alameda County?",
+    "db_id": "california_schools",
+    "SQL": "SELECT `Free Meal Count (K-12)` / `Enrollment (K-12)` FROM frpm WHERE `County Name` = 'Alameda' ORDER BY (CAST(`Free Meal Count (K-12)` AS REAL) / `Enrollment (K-12)`) DESC LIMIT 1",
+    "expert_result": "   `Free Meal Count (K-12)` / `Enrollment (K-12)`\n0                                             1.0",
+    "generated_result": "   MAX(`Percent (%) Eligible Free (K-12)`)\n0                                      1.0",
+    "generated_sql": "SELECT MAX(`Percent (%) Eligible Free (K-12)`)\nFROM frpm\nWHERE `County Name` = 'Alameda'\nAND `Percent (%) Eligible Free (K-12)` IS NOT NULL;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 29,
+    "question": "When did the first-through-twelfth-grade school with the largest enrollment open?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.OpenDate FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode ORDER BY T1.`Enrollment (K-12)` DESC LIMIT 1",
+    "expert_result": "     OpenDate\n0  2006-08-29",
+    "generated_result": "     OpenDate\n0  2006-08-29",
+    "generated_sql": "SELECT s.OpenDate\nFROM frpm AS f\nLEFT JOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`School Type` = 'K-12 Schools (Public)'\n  AND f.`Enrollment (K-12)` IS NOT NULL\n  AND s.OpenDate IS NOT NULL\nORDER BY f.`Enrollment (K-12)` DESC\nLIMIT 1;"
+}

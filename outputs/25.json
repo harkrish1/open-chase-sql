@@ -1,0 +1,9 @@
+{
+    "question_id": 25,
+    "question": "Name schools in Riverside which the average of average math score for SAT is grater than 400, what is the funding type of these schools?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.sname, T2.`Charter Funding Type` FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode WHERE T2.`District Name` LIKE 'Riverside%' GROUP BY T1.sname, T2.`Charter Funding Type` HAVING CAST(SUM(T1.AvgScrMath) AS REAL) / COUNT(T1.cds) > 400",
+    "expert_result": "                         sname Charter Funding Type\n0               Arlington High                 None\n1           John W. North High                 None\n2  Martin Luther King Jr. High                 None\n3             Polytechnic High                 None\n4                  Ramona High                 None\n5        River Springs Charter      Directly funded",
+    "generated_result": "                             School      FundingType\n0             River Springs Charter  Directly funded\n1                 College Prep High   Locally funded\n2                Santa Rosa Academy  Directly funded\n3  Nuview Bridge Early College High   Locally funded\n4     California Military Institute   Locally funded\n5        San Jacinto Valley Academy  Directly funded\n6          NOVA Academy - Coachella  Directly funded\n7              Temecula Preparatory  Directly funded",
+    "generated_sql": "SELECT s.School, s.FundingType\nFROM schools AS s\nJOIN satscores AS sat\n  ON s.CDSCode = sat.cds\nWHERE s.County = 'Riverside'\n  AND sat.AvgScrMath IS NOT NULL\n  AND s.School IS NOT NULL\n  AND s.FundingType IS NOT NULL\nGROUP BY s.CDSCode, s.School, s.FundingType\nHAVING AVG(sat.AvgScrMath) > 400;"
+}

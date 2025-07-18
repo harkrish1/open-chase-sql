@@ -1,0 +1,9 @@
+{
+    "question_id": 70,
+    "question": "How many active and closed District Community Day Schools are there in the county of Alpine?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(School) FROM schools WHERE (StatusType = 'Closed' OR StatusType = 'Active') AND SOC = 69 AND County = 'Alpine'",
+    "expert_result": "   COUNT(School)\n0              2",
+    "generated_result": "  StatusType  count\n0     Active      1",
+    "generated_sql": "SELECT s.StatusType, COUNT(*) AS `count`\nFROM frpm AS f\nJOIN schools AS s ON f.CDSCode = s.CDSCode\nWHERE f.`County Name` = 'Alpine'\n  AND f.`School Type` = 'District Community Day Schools'\n  AND s.StatusType IS NOT NULL\nGROUP BY s.StatusType;"
+}

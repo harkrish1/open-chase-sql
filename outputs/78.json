@@ -1,0 +1,9 @@
+{
+    "question_id": 78,
+    "question": "What is the most common type of grade span served in the city of Adelanto?",
+    "db_id": "california_schools",
+    "SQL": "SELECT GSserved FROM schools WHERE City = 'Adelanto' GROUP BY GSserved ORDER BY COUNT(GSserved) DESC LIMIT 1",
+    "expert_result": "  GSserved\n0      K-6",
+    "generated_result": "  GSserved  cnt\n0      K-6    5",
+    "generated_sql": "SELECT `GSserved`, COUNT(*) AS cnt\nFROM schools\nWHERE `City` = 'Adelanto'\n  AND `City` IS NOT NULL\n  AND `GSserved` IS NOT NULL\nGROUP BY `GSserved`\nORDER BY cnt DESC\nLIMIT 1;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 16,
+    "question": "How many schools in merged Alameda have number of test takers less than 100?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(T1.CDSCode) FROM schools AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds WHERE T1.StatusType = 'Merged' AND T2.NumTstTakr < 100 AND T1.County = 'Lake'",
+    "expert_result": "   COUNT(T1.CDSCode)\n0                  1",
+    "generated_result": "   COUNT(DISTINCT a.`School Name`)\n0                               44",
+    "generated_sql": "SELECT COUNT(DISTINCT a.`School Name`)\nFROM frpm AS a\nJOIN satscores AS b\n  ON a.`School Name` = b.sname\n  AND a.`County Name` = b.cname\nWHERE a.`County Name` = 'Alameda'\n  AND b.`NumTstTakr` < 100\n  AND a.`School Name` IS NOT NULL\n  AND b.`NumTstTakr` IS NOT NULL;"
+}

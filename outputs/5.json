@@ -1,0 +1,9 @@
+{
+    "question_id": 5,
+    "question": "How many schools with an average score in Math greater than 400 in the SAT test are exclusively virtual?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(DISTINCT T2.School) FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode WHERE T2.Virtual = 'F' AND T1.AvgScrMath > 400",
+    "expert_result": "   COUNT(DISTINCT T2.School)\n0                          4",
+    "generated_result": "   COUNT(DISTINCT a.cds)\n0                      4",
+    "generated_sql": "SELECT COUNT(DISTINCT a.cds)\nFROM satscores AS a\nJOIN schools AS b\n  ON a.cds = b.CDSCode\nWHERE a.AvgScrMath > 400\n  AND b.Virtual = 'F';"
+}

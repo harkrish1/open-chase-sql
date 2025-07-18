@@ -1,0 +1,9 @@
+{
+    "question_id": 18,
+    "question": "How many schools in Fresno (directly funded) have number of test takers not more than 250?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(T1.CDSCode) FROM frpm AS T1 INNER JOIN satscores AS T2 ON T1.CDSCode = T2.cds WHERE T1.`Charter Funding Type` = 'Directly funded' AND T1.`County Name` = 'Fresno' AND T2.NumTstTakr <= 250",
+    "expert_result": "   COUNT(T1.CDSCode)\n0                 14",
+    "generated_result": "   COUNT(DISTINCT s.CDSCode)\n0                         14",
+    "generated_sql": "SELECT COUNT(DISTINCT s.CDSCode)\nFROM schools AS s\nJOIN satscores AS t\n  ON s.CDSCode = t.cds\nWHERE s.County = 'Fresno'\n  AND s.FundingType = 'Directly funded'\n  AND t.rtype = 'S'\n  AND t.NumTstTakr <= 250\n  AND t.NumTstTakr IS NOT NULL;"
+}

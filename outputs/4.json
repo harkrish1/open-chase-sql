@@ -1,0 +1,9 @@
+{
+    "question_id": 4,
+    "question": "Please list the phone numbers of the direct charter-funded schools that are opened after 2000/1/1.",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Phone FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T1.`Charter Funding Type` = 'Directly funded' AND T1.`Charter School (Y/N)` = 1 AND T2.OpenDate > '2000-01-01'",
+    "expert_result": "              Phone\n0              None\n1    (510) 596-8901\n2              None\n3    (510) 686-4131\n4    (510) 452-2063\n..              ...\n746  (805) 222-5188\n747  (916) 375-7680\n748  (916) 596-6422\n749  (530) 692-2210\n750  (530) 742-2505\n\n[751 rows x 1 columns]",
+    "generated_result": "              Phone\n0    (510) 596-8901\n1    (510) 686-4131\n2    (510) 452-2063\n3    (510) 842-1181\n4    (510) 748-4008\n..              ...\n689  (805) 222-5188\n690  (916) 375-7680\n691  (916) 596-6422\n692  (530) 692-2210\n693  (530) 742-2505\n\n[694 rows x 1 columns]",
+    "generated_sql": "SELECT a.Phone\nFROM schools AS a\nJOIN frpm AS b\n  ON a.CDSCode = b.CDSCode\nWHERE b.`Charter School (Y/N)` = 1\n  AND b.`Charter Funding Type` = 'Directly funded'\n  AND a.OpenDate > '2000-01-01'\n  AND a.Phone IS NOT NULL;"
+}

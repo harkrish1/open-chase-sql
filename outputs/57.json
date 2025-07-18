@@ -1,0 +1,9 @@
+{
+    "question_id": 57,
+    "question": "What is the phone number and extension number for the school that had the 333rd highest average writing score?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Phone, T2.Ext FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.AvgScrWrite DESC LIMIT 332, 1",
+    "expert_result": "            Phone   Ext\n0  (916) 395-5050  None",
+    "generated_result": "Empty DataFrame\nColumns: [Phone, Ext]\nIndex: []",
+    "generated_sql": "SELECT Phone, Ext\nFROM (\n    SELECT s.Phone, s.Ext, ROW_NUMBER() OVER (ORDER BY sat.AvgScrWrite DESC) as rn\n    FROM satscores sat\n    JOIN schools s ON SUBSTR(s.CDSCode, 2) = sat.cds\n    WHERE sat.AvgScrWrite IS NOT NULL\n) ranked\nWHERE rn = 333\nAND Phone IS NOT NULL"
+}

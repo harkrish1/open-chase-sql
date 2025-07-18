@@ -1,0 +1,9 @@
+{
+    "question_id": 10,
+    "question": "For the school with the highest average score in Reading in the SAT test, what is its FRPM count for students aged 5-17?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.`FRPM Count (Ages 5-17)` FROM satscores AS T1 INNER JOIN frpm AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.AvgScrRead DESC LIMIT 1",
+    "expert_result": "   FRPM Count (Ages 5-17)\n0                   136.0",
+    "generated_result": "   FRPM Count (Ages 5-17)\n0                    69.0",
+    "generated_sql": "SELECT f.`FRPM Count (Ages 5-17)`\nFROM satscores s\nJOIN frpm f ON s.cds = SUBSTR(f.CDSCode, 2)\nWHERE s.AvgScrRead = (SELECT MAX(AvgScrRead) FROM satscores WHERE AvgScrRead IS NOT NULL)\nAND f.`FRPM Count (Ages 5-17)` IS NOT NULL"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 54,
+    "question": "Please specify all of the schools and their related mailing zip codes that are under Avetik Atoian's administration.",
+    "db_id": "california_schools",
+    "SQL": "SELECT School, MailZip FROM schools WHERE AdmFName1 = 'Avetik' AND AdmLName1 = 'Atoian'",
+    "expert_result": "            School     MailZip\n0  Fairview Middle  93926-0238",
+    "generated_result": "                                       School     MailZip\n0           Madera County Independent Academy       93637\n1                        Enterprise Secondary       93637\n2  Juvenile Hall (Endeavor/Voyager Secondary)       93637\n3                    Pioneer Technical Center       93637\n4                             Fairview Middle  93926-0238",
+    "generated_sql": "SELECT School, MailZip\nFROM schools\nWHERE (\n    (AdmFName1 = 'Avetik' AND AdmLName1 = 'Atoian')\n    OR (AdmFName2 = 'Avetik' AND AdmLName2 = 'Atoian')\n    OR (AdmFName3 = 'Avetik' AND AdmLName3 = 'Atoian')\n)\nAND School IS NOT NULL\nAND MailZip IS NOT NULL;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 7,
+    "question": "What is the phone number of the school that has the highest number of test takers with an SAT score of over 1500?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.Phone FROM satscores AS T1 INNER JOIN schools AS T2 ON T1.cds = T2.CDSCode ORDER BY T1.NumGE1500 DESC LIMIT 1",
+    "expert_result": "            Phone\n0  (213) 241-1000",
+    "generated_result": "            Phone\n0  (213) 241-1000",
+    "generated_sql": "SELECT b.Phone\nFROM satscores AS a\nLEFT JOIN schools AS b\n  ON a.cds = b.CDSCode\nWHERE b.Phone IS NOT NULL\nORDER BY a.NumGE1500 DESC\nLIMIT 1;"
+}

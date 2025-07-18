@@ -1,0 +1,9 @@
+{
+    "question_id": 72,
+    "question": "How many students from the ages of 5 to 17 are enrolled at the State Special School school in Fremont for the 2014-2015 academic year?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T1.`Enrollment (Ages 5-17)` FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.EdOpsCode = 'SSS' AND T2.City = 'Fremont' AND T1.`Academic Year` BETWEEN 2014 AND 2015",
+    "expert_result": "   Enrollment (Ages 5-17)\n0                    40.0\n1                   335.0",
+    "generated_result": "   SUM(f.`Enrollment (Ages 5-17)`)\n0                            375.0",
+    "generated_sql": "SELECT SUM(f.`Enrollment (Ages 5-17)`)\nFROM frpm AS f\nJOIN schools AS s\n  ON f.CDSCode = s.CDSCode\nWHERE f.`Academic Year` = '2014-2015'\n  AND s.EdOpsCode = 'SSS'\n  AND s.City = 'Fremont'\n  AND f.`Enrollment (Ages 5-17)` IS NOT NULL;"
+}

@@ -1,0 +1,9 @@
+{
+    "question_id": 46,
+    "question": "Which state special schools have the highest number of enrollees from grades 1 through 12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.School FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode WHERE T2.DOC = 31 ORDER BY T1.`Enrollment (K-12)` DESC LIMIT 1",
+    "expert_result": "                                   School\n0  California School for the Deaf-Fremont",
+    "generated_result": "                                     School  enroll12\n0  California School for the Deaf-Riverside        71",
+    "generated_sql": "SELECT s.`School`, t.enroll12\nFROM schools AS s\nJOIN satscores AS t\n  ON s.CDSCode = t.cds\nWHERE s.DOC = '31'\n  AND s.GSserved = 'K-12'\n  AND t.enroll12 IS NOT NULL\n  AND s.`School` IS NOT NULL\nORDER BY t.enroll12 DESC;"
+}

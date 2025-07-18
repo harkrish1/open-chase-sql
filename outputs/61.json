@@ -1,0 +1,9 @@
+{
+    "question_id": 61,
+    "question": "How many chartered schools located in the city of Hickman are owned by the Elementary School District?",
+    "db_id": "california_schools",
+    "SQL": "SELECT COUNT(School) FROM schools WHERE DOC = 52 AND Charter = 1 AND City = 'Hickman'",
+    "expert_result": "   COUNT(School)\n0              3",
+    "generated_result": "   COUNT(*)\n0         3",
+    "generated_sql": "SELECT COUNT(*) \nFROM schools \nWHERE `Charter` = 1 \n  AND `DOC` = '52' \n  AND `City` = 'Hickman';"
+}

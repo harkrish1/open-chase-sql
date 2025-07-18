@@ -1,0 +1,9 @@
+{
+    "question_id": 68,
+    "question": "Which county reported the most number of school closure in the 1980s with school wonership code belonging to Youth Authority Facilities (CEA)?",
+    "db_id": "california_schools",
+    "SQL": "SELECT County FROM schools WHERE strftime('%Y', ClosedDate) BETWEEN '1980' AND '1989' AND StatusType = 'Closed' AND SOC = 11 GROUP BY County ORDER BY COUNT(School) DESC LIMIT 1",
+    "expert_result": "       County\n0  Sacramento",
+    "generated_result": "       County  closures_count\n0  Sacramento               1",
+    "generated_sql": "SELECT `County`, COUNT(*) AS `closures_count`\nFROM `schools`\nWHERE `SOC` = '11'\n  AND `ClosedDate` BETWEEN '1980-01-01' AND '1989-12-31'\n  AND `County` IS NOT NULL\nGROUP BY `County`\nORDER BY `closures_count` DESC\nLIMIT 1;"
+}

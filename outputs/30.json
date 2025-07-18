@@ -1,0 +1,9 @@
+{
+    "question_id": 30,
+    "question": "Which cities have the top 5 lowest enrollment number for students in grades 1 through 12?",
+    "db_id": "california_schools",
+    "SQL": "SELECT T2.City FROM frpm AS T1 INNER JOIN schools AS T2 ON T1.CDSCode = T2.CDSCode GROUP BY T2.City ORDER BY SUM(T1.`Enrollment (K-12)`) ASC LIMIT 5",
+    "expert_result": "           City\n0  Coulterville\n1     Pinecrest\n2   Shaver Lake\n3  Emigrant Gap\n4       Hyampom",
+    "generated_result": "          City  total_enrollment\n0      Leggett                 2\n1  Bridgeville                 4\n2  Downieville                 4\n3         Hume                 5\n4   Cedarville                 6",
+    "generated_sql": "SELECT s.City, SUM(ss.enroll12) AS total_enrollment\nFROM schools AS s\nJOIN satscores AS ss\n  ON ss.cds = s.CDSCode\nWHERE ss.rtype = 'S'\n  AND s.City IS NOT NULL\n  AND ss.enroll12 IS NOT NULL\nGROUP BY s.City\nORDER BY total_enrollment ASC\nLIMIT 5;"
+}

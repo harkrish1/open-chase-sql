@@ -1,0 +1,9 @@
+{
+    "question_id": 60,
+    "question": "What are the websites for all the partially virtual chartered schools located in San Joaquin?",
+    "db_id": "california_schools",
+    "SQL": "SELECT Website FROM schools WHERE County = 'San Joaquin' AND Virtual = 'P' AND Charter = 1",
+    "expert_result": "              Website\n0   www.riovalley.org\n1  www.mantecausd.net",
+    "generated_result": "              Website\n0   www.riovalley.org\n1  www.mantecausd.net",
+    "generated_sql": "SELECT s.Website\nFROM schools AS s\nJOIN frpm AS f\n  ON s.CDSCode = f.CDSCode\nWHERE s.Charter = 1\n  AND s.Virtual = 'P'\n  AND f.`County Name` = 'San Joaquin'\n  AND s.Website IS NOT NULL;"
+}
